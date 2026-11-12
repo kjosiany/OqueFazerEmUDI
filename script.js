@@ -1,10 +1,5 @@
 
-/* =========================================
-   O QUE FAZER EM UDI MG
-   API, categorias e cartões
-========================================= */
 
-// CONFIGURAÇÕES
 
 const API_URL = "http://localhost:3000/api";
 
@@ -13,15 +8,11 @@ const listaLugares = document.getElementById("lista-lugares");
 const botoesCategorias = document.querySelectorAll("[data-categoria]");
 
 
-// DADOS E FILTROS
 
 let lugares = [];
 let categoriaSelecionada = "";
 
 
-// =========================================
-// NORMALIZAR TEXTOS
-// =========================================
 
 function normalizarTexto(texto) {
     return String(texto || "")
@@ -33,9 +24,6 @@ function normalizarTexto(texto) {
 }
 
 
-// =========================================
-// CARREGAR LUGARES DA API
-// =========================================
 
 async function carregarLugares() {
 
@@ -75,9 +63,6 @@ async function carregarLugares() {
 }
 
 
-// =========================================
-// CRIAR CARTÃO
-// =========================================
 
 function criarCartao(lugar) {
 
@@ -86,14 +71,12 @@ function criarCartao(lugar) {
     card.classList.add("lugar-card");
 
 
-    // CONTEÚDO DO CARTÃO
 
     const conteudo = document.createElement("div");
 
     conteudo.classList.add("lugar-card-content");
 
 
-    // IMAGEM
 
     if (lugar.imagem_url) {
 
@@ -109,7 +92,6 @@ function criarCartao(lugar) {
     }
 
 
-    // NOME
 
     const nome = document.createElement("h3");
 
@@ -118,7 +100,6 @@ function criarCartao(lugar) {
     conteudo.appendChild(nome);
 
 
-    // DESCRIÇÃO
 
     const descricao = document.createElement("p");
 
@@ -127,7 +108,6 @@ function criarCartao(lugar) {
     conteudo.appendChild(descricao);
 
 
-    // ENDEREÇO
 
     if (lugar.bairro || lugar.endereco) {
 
@@ -144,14 +124,12 @@ function criarCartao(lugar) {
     }
 
 
-    // LINKS
 
     const links = document.createElement("div");
 
     links.classList.add("lugar-links");
 
 
-    // INSTAGRAM
 
     if (lugar.instagram_url) {
 
@@ -166,7 +144,6 @@ function criarCartao(lugar) {
     }
 
 
-    // GOOGLE MAPS
 
     if (lugar.google_maps_url) {
 
@@ -188,9 +165,6 @@ function criarCartao(lugar) {
 }
 
 
-// =========================================
-// EXIBIR LUGARES
-// =========================================
 
 function renderizarLugares(lista) {
 
@@ -216,9 +190,6 @@ function renderizarLugares(lista) {
 }
 
 
-// =========================================
-// VERIFICAR CATEGORIA
-// =========================================
 
 function pertenceCategoria(lugar) {
 
@@ -246,9 +217,6 @@ function pertenceCategoria(lugar) {
 }
 
 
-// =========================================
-// APLICAR FILTROS
-// =========================================
 
 function aplicarFiltros() {
 
@@ -264,10 +232,6 @@ function aplicarFiltros() {
 }
 
 
-// =========================================
-// FILTRO DE CATEGORIAS
-// =========================================
-
 botoesCategorias.forEach(botao => {
 
     botao.addEventListener("click", () => {
@@ -276,7 +240,6 @@ botoesCategorias.forEach(botao => {
             botao.dataset.categoria
         );
 
-        // ATUALIZAR BOTÃO ATIVO
 
         botoesCategorias.forEach(item => {
             item.classList.remove("active");
@@ -284,7 +247,6 @@ botoesCategorias.forEach(botao => {
 
         botao.classList.add("active");
 
-        // ATUALIZAR LUGARES
 
         aplicarFiltros();
 
