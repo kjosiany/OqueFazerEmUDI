@@ -1,11 +1,4 @@
 
-/* =========================================
-   O QUE FAZER EM UDI MG
-   Servidor e API
-========================================= */
-
-// 1. Importando as dependências
-
 require("dotenv").config();
 
 const express = require("express");
