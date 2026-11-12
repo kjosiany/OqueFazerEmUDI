@@ -6,7 +6,6 @@ const cors = require("cors");
 const { Pool } = require("pg");
 
 
-// 2. Configurando o servidor
 
 const app = express();
 
@@ -14,7 +13,6 @@ app.use(cors());
 app.use(express.json());
 
 
-// 3. Configurando a conexão com o PostgreSQL
 
 const pool = new Pool({
     connectionString: process.env.DATABASE_URL,
@@ -24,14 +22,12 @@ const pool = new Pool({
 });
 
 
-// 4. Rota inicial: verificar se a API está funcionando
 
 app.get("/", (req, res) => {
     res.send("API O que fazer em Udi está funcionando!");
 });
 
 
-// 5. Rota: buscar todos os lugares
 
 app.get("/api/lugares", async (req, res) => {
 
@@ -86,7 +82,6 @@ app.get("/api/lugares", async (req, res) => {
 });
 
 
-// 6. Iniciando o servidor
 
 const PORT = process.env.PORT || 3000;
 
