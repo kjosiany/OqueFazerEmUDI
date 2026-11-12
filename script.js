@@ -1,8 +1,5 @@
 
-
-
-const API_URL = "http://localhost:3000/api";
-
+const API_URL = "https://oquefazeremudi.onrender.com/api";
 const listaLugares = document.getElementById("lista-lugares");
 
 const botoesCategorias = document.querySelectorAll("[data-categoria]");
